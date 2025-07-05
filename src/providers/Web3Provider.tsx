@@ -16,7 +16,7 @@ import {
 
 const config = getDefaultConfig({
   appName: 'Rescu3 - Decentralized Wallet Recovery',
-  projectId: 'YOUR_PROJECT_ID', // Get from WalletConnect
+  projectId: '2f05a7cac472eca57b2ddc67b9b4c6f6', // Public demo project ID for development
   chains: [sepolia, optimismGoerli],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
