@@ -74,7 +74,7 @@ export default function Dashboard() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-center"
             >
-              <div className="glass-card max-w-md mx-auto p-12 rounded-3xl border shadow-lg">
+              <div className="flex flex-col items-center glass-card max-w-md mx-auto p-12 rounded-3xl border shadow-lg">
                 <div className="text-6xl mb-6 animate-bounce">🔗</div>
                 <h2 className="text-2xl font-display font-bold mb-6 text-foreground">Connect Your Wallet</h2>
                 <p className="text-muted-foreground mb-8 font-body">
