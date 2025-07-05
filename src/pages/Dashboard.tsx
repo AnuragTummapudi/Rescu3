@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
-      <MainNavbar />
+      {/* <MainNavbar /> */}
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
       
