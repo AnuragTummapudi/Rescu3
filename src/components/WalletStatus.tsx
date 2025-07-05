@@ -32,27 +32,27 @@ export function WalletStatus() {
     >
       <Card className="glass-card">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 text-lg lg:text-xl">
             <Wallet className="h-5 w-5" />
             Wallet Status
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Connection Status */}
-          <div className="flex items-center justify-between p-4 rounded-xl bg-muted/30">
+          <div className="flex items-center justify-between p-3 lg:p-4 rounded-xl bg-muted/30">
             <span className="text-sm font-medium">Connection</span>
             <div className="flex items-center gap-2">
               {isConnected ? (
                 <>
                   <CheckCircle className="h-4 w-4 text-success" />
-                  <Badge variant="secondary" className="bg-success-light text-success">
+                  <Badge variant="secondary" className="bg-success-light text-success text-xs">
                     Connected
                   </Badge>
                 </>
               ) : (
                 <>
                   <AlertCircle className="h-4 w-4 text-destructive" />
-                  <Badge variant="destructive">Disconnected</Badge>
+                  <Badge variant="destructive" className="text-xs">Disconnected</Badge>
                 </>
               )}
             </div>
@@ -70,7 +70,7 @@ export function WalletStatus() {
                   variant="ghost"
                   size="sm"
                   onClick={copyAddress}
-                  className="h-8 w-8 p-0"
+                  className="h-8 w-8 p-0 hover:scale-110 transition-spring"
                 >
                   <Copy className="h-3 w-3" />
                 </Button>
@@ -78,7 +78,7 @@ export function WalletStatus() {
                   variant="ghost"
                   size="sm"
                   onClick={() => window.open(`https://sepolia.etherscan.io/address/${address}`, '_blank')}
-                  className="h-8 w-8 p-0"
+                  className="h-8 w-8 p-0 hover:scale-110 transition-spring"
                 >
                   <ExternalLink className="h-3 w-3" />
                 </Button>
@@ -88,20 +88,20 @@ export function WalletStatus() {
 
           {/* Network Status */}
           {isConnected && (
-            <div className="flex items-center justify-between p-4 rounded-xl bg-muted/30">
+            <div className="flex items-center justify-between p-3 lg:p-4 rounded-xl bg-muted/30">
               <span className="text-sm font-medium">Network</span>
               <div className="flex items-center gap-2">
                 {isCorrectNetwork ? (
                   <>
                     <CheckCircle className="h-4 w-4 text-success" />
-                    <Badge variant="secondary" className="bg-success-light text-success">
+                    <Badge variant="secondary" className="bg-success-light text-success text-xs">
                       {chainName}
                     </Badge>
                   </>
                 ) : (
                   <>
                     <AlertCircle className="h-4 w-4 text-warning" />
-                    <Badge variant="secondary" className="bg-warning-light text-warning">
+                    <Badge variant="secondary" className="bg-warning-light text-warning text-xs">
                       {chainName}
                     </Badge>
                   </>
@@ -114,8 +114,8 @@ export function WalletStatus() {
           {!isCorrectNetwork && isConnected && (
             <div className="p-4 rounded-xl bg-warning-light border border-warning/20">
               <div className="flex items-start gap-3">
-                <AlertCircle className="h-5 w-5 text-warning mt-0.5" />
-                <div className="flex-1">
+                <AlertCircle className="h-5 w-5 text-warning mt-0.5 flex-shrink-0" />
+                <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-warning mb-1">
                     Wrong Network
                   </p>
@@ -125,7 +125,7 @@ export function WalletStatus() {
                   <Button 
                     variant="outline" 
                     size="sm" 
-                    className="border-warning text-warning hover:bg-warning hover:text-warning-foreground"
+                    className="border-warning text-warning hover:bg-warning hover:text-warning-foreground text-xs"
                   >
                     Switch to Sepolia
                   </Button>
@@ -138,7 +138,7 @@ export function WalletStatus() {
           {isConnected && isCorrectNetwork && (
             <div className="p-4 rounded-xl bg-primary-light border border-primary/20">
               <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <div className="flex-1">
                   <p className="text-sm font-medium text-primary mb-1">
                     Ready for Recovery

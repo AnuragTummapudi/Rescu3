@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Next-Level Clean Light Design System */
+/* Next-Level Clean Light Design System with Futuristic Grid */
 
 @layer base {
   :root {
@@ -96,6 +96,38 @@
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    position: relative;
+  }
+
+  /* Futuristic Grid Background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(221, 83, 53, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(221, 83, 53, 0.03) 1px, transparent 1px),
+      linear-gradient(rgba(221, 83, 53, 0.01) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(221, 83, 53, 0.01) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    pointer-events: none;
+    z-index: 0;
+    animation: grid-move 20s linear infinite;
+  }
+
+  @keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100px, 100px); }
+  }
+
+  /* Ensure content is above grid */
+  .container, .relative {
+    position: relative;
+    z-index: 1;
   }
 
   /* Next-Level Glass Components */
@@ -105,14 +137,18 @@
     box-shadow: var(--glass-shadow);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 1;
   }
 
   .glass-nav {
-    background: hsl(0 0% 100% / 0.8);
+    background: hsl(0 0% 100% / 0.9);
     border: 1px solid hsl(221 83% 53% / 0.06);
     box-shadow: 0 4px 24px hsl(221 83% 53% / 0.04);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
+    position: relative;
+    z-index: 50;
   }
 
   /* Modern Glow Effects */
@@ -189,5 +225,20 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--primary) / 0.5);
+  }
+
+  /* Responsive Grid Adjustments */
+  @media (max-width: 768px) {
+    body::before {
+      background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+      animation: grid-move 15s linear infinite;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body::before {
+      background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
+      animation: grid-move 10s linear infinite;
+    }
   }
 }
