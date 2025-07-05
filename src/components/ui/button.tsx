@@ -5,19 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 hover:shadow-xl glow-primary",
-        destructive: "bg-destructive text-destructive-foreground shadow-lg hover:bg-destructive/90",
-        outline: "border border-border bg-card text-card-foreground shadow-sm hover:bg-muted hover:border-primary/30 transition-smooth",
-        secondary: "bg-secondary text-secondary-foreground shadow-lg hover:bg-secondary/80",
-        ghost: "hover:bg-accent/20 hover:text-accent-foreground",
+        default: "bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 hover:shadow-xl glow-primary hover:scale-[1.02]",
+        destructive: "bg-destructive text-destructive-foreground shadow-lg hover:bg-destructive/90 hover:scale-[1.02]",
+        outline: "border border-border bg-card text-card-foreground shadow-sm hover:bg-muted hover:border-primary/30 hover:scale-[1.02] transition-spring",
+        secondary: "bg-secondary text-secondary-foreground shadow-lg hover:bg-secondary/80 hover:scale-[1.02]",
+        ghost: "hover:bg-accent/20 hover:text-accent-foreground hover:scale-[1.02]",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-primary text-primary-foreground font-semibold shadow-2xl hover:shadow-primary/25 hover:scale-105 transition-bounce glow-primary",
-        glass: "glass-card text-foreground hover:bg-card/80 hover:border-primary/20 hover:shadow-md transition-smooth border border-border",
-        connect: "bg-accent text-accent-foreground font-semibold shadow-lg hover:bg-accent/90 hover:shadow-xl glow-accent",
+        hero: "bg-gradient-primary text-primary-foreground font-semibold shadow-2xl hover:shadow-primary/25 hover:scale-105 transition-spring glow-primary",
+        glass: "glass-card text-foreground hover:bg-card/80 hover:border-primary/20 hover:shadow-lg transition-spring border border-border hover:scale-[1.02]",
+        connect: "bg-accent text-accent-foreground font-semibold shadow-lg hover:bg-accent/90 hover:shadow-xl glow-accent hover:scale-[1.02]",
+        success: "bg-success text-success-foreground shadow-lg hover:bg-success/90 glow-success hover:scale-[1.02]",
       },
       size: {
         default: "h-11 px-6 py-3",
