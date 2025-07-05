@@ -26,25 +26,25 @@ const team = [
   {
     name: "Anurag Tummapudi",
     role: "Full Stack & Smart Contracts",
-    bio: "Web3 developer, Solidity & React enthusiast. ETHIndia 2024 participant.",
+    bio: "Web3 developer, Solidity & React enthusiast.",
     avatar: "AT"
   },
   {
     name: "Shazia Mohommed",
     role: "Frontend & UI/UX",
-    bio: "Passionate about user experience and clean design. ETHIndia 2024 participant.",
+    bio: "Passionate about user experience and clean design.",
     avatar: "SM"
   },
   {
     name: "Saran Gaddanti",
     role: "Backend & Integration",
-    bio: "Loves building scalable dApps and APIs. ETHIndia 2024 participant.",
+    bio: "Loves building scalable dApps and APIs.",
     avatar: "SG"
   },
   {
     name: "Prem Jangam",
     role: "Testing & Documentation",
-    bio: "Ensures quality and clarity in every release. ETHIndia 2024 participant.",
+    bio: "Ensures quality and clarity in every release.",
     avatar: "PJ"
   }
 ];
