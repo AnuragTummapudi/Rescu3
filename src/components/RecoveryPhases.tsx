@@ -37,11 +37,29 @@ interface RecoveryState {
 export function RecoveryPhases() {
   const { toast } = useToast();
   const { address } = useAccount();
-  const [formData, setFormData] = useState({
-    lostWalletAddress: "",
-    recoveryWalletAddress: "",
-    nonce: ""
+  
+  // Load form data from localStorage on component mount
+  const [formData, setFormData] = useState(() => {
+    const saved = localStorage.getItem('rescu3-form-data');
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch (e) {
+        console.error('Failed to parse saved form data:', e);
+      }
+    }
+    return {
+      lostWalletAddress: "",
+      recoveryWalletAddress: "",
+      nonce: ""
+    };
   });
+  
+  // Save form data to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('rescu3-form-data', JSON.stringify(formData));
+  }, [formData]);
+  
   const [commitHash, setCommitHash] = useState<string>("");
   const [challengeTimeRemaining, setChallengeTimeRemaining] = useState(0);
 
@@ -168,6 +186,9 @@ export function RecoveryPhases() {
         setChallengeTimeRemaining(prev => {
           if (prev <= 1) {
             clearInterval(timer);
+            // Refetch contract data when timer hits 0
+            refetchCommitData();
+            refetchPendingRecovery();
             return 0;
           }
           return prev - 1;
@@ -176,7 +197,7 @@ export function RecoveryPhases() {
 
       return () => clearInterval(timer);
     }
-  }, [challengeTimeRemaining]);
+  }, [challengeTimeRemaining, refetchCommitData, refetchPendingRecovery]);
 
   const handleCommit = async () => {
     if (!formData.lostWalletAddress || !formData.recoveryWalletAddress) {
@@ -202,6 +223,15 @@ export function RecoveryPhases() {
       toast({
         title: "Invalid Address", 
         description: "Recovery wallet address is not valid.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (formData.lostWalletAddress.toLowerCase() === formData.recoveryWalletAddress.toLowerCase()) {
+      toast({
+        title: "Addresses Cannot Be The Same",
+        description: "Lost wallet and recovery wallet must be different.",
         variant: "destructive"
       });
       return;
@@ -334,15 +364,24 @@ export function RecoveryPhases() {
       });
 
       toast({
-        title: "Claim Transaction Sent", 
-        description: "Completing wallet recovery...",
+        title: (
+          <span>
+            <span role="img" aria-label="Party Popper" className="animate-bounce">🎉</span> Congratulations!
+          </span>
+        ),
+        description: "Ownership has been successfully claimed. Wallet recovery is complete.",
+        duration: 7000,
       });
-
-      // Refetch data after successful claim
-      setTimeout(() => {
-        refetchCommitData();
-        refetchPendingRecovery();
-      }, 2000);
+      // Dispatch event for dashboard stats
+      window.dispatchEvent(new Event('rescu3-claim-success'));
+      // Clear form and localStorage after claim
+      setFormData({
+        lostWalletAddress: "",
+        recoveryWalletAddress: "",
+        nonce: ""
+      });
+      setCommitHash("");
+      localStorage.removeItem('rescu3-form-data');
 
     } catch (error) {
       console.error("Claim error:", error);
@@ -456,6 +495,28 @@ export function RecoveryPhases() {
                     </>
                   )}
                 </Button>
+                
+                {/* Reset button */}
+                <Button 
+                  variant="outline" 
+                  onClick={() => {
+                    setFormData({
+                      lostWalletAddress: "",
+                      recoveryWalletAddress: "",
+                      nonce: ""
+                    });
+                    setCommitHash("");
+                    localStorage.removeItem('rescu3-form-data');
+                    toast({
+                      title: "Form Reset",
+                      description: "All data has been cleared. You can start fresh.",
+                    });
+                  }}
+                  className="w-full"
+                  size="sm"
+                >
+                  Reset Form
+                </Button>
               </CardContent>
             </Card>
           </motion.div>
@@ -502,14 +563,17 @@ export function RecoveryPhases() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="nonce" className="text-sm font-medium">Nonce</Label>
+                    <Label htmlFor="nonce" className="text-sm font-medium">Nonce (Auto-generated)</Label>
                     <Input
                       id="nonce"
-                      placeholder="Enter nonce"
                       value={formData.nonce}
-                      onChange={(e) => setFormData(prev => ({ ...prev, nonce: e.target.value }))}
-                      className="font-mono text-sm"
+                      readOnly
+                      className="bg-muted font-mono text-sm"
+                      placeholder="Nonce will appear here after commit"
                     />
+                    <p className="text-xs text-muted-foreground">
+                      This nonce was automatically generated during your commit. If this field is empty, please refresh the page or start a new recovery process.
+                    </p>
                   </div>
                 </div>
                 <Button 

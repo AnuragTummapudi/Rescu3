@@ -6,9 +6,29 @@ import { useAccount } from "wagmi";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Trophy } from "lucide-react";
 
 export default function Dashboard() {
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
+  const [recoveryCount, setRecoveryCount] = useState(0);
+
+  useEffect(() => {
+    // Load recovery count from localStorage
+    const count = localStorage.getItem('rescu3-recovery-count');
+    if (count) setRecoveryCount(Number(count));
+    // Listen for claim event (custom event dispatched after claim)
+    const handler = () => {
+      setRecoveryCount(prev => {
+        const newCount = prev + 1;
+        localStorage.setItem('rescu3-recovery-count', String(newCount));
+        return newCount;
+      });
+    };
+    window.addEventListener('rescu3-claim-success', handler);
+    return () => window.removeEventListener('rescu3-claim-success', handler);
+  }, []);
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
@@ -74,6 +94,20 @@ export default function Dashboard() {
                 className="lg:col-span-1"
               >
                 <WalletStatus />
+                <div className="mb-6">
+                  <Card className="border shadow-sm">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Trophy className="h-5 w-5 text-primary" />
+                        Recovery Stats
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="text-2xl font-bold text-primary">{recoveryCount}</div>
+                      <div className="text-sm text-muted-foreground">Wallets Recovered</div>
+                    </CardContent>
+                  </Card>
+                </div>
               </motion.div>
 
               {/* Right Column - Recovery Phases */}
