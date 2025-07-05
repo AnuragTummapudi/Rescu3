@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Rescu3 - Decentralized Wallet Recovery Protocol
 
 A complete Web3 application for recovering lost Ethereum wallets using a secure commit-reveal protocol.
@@ -192,6 +191,3 @@ For questions and support:
 ---
 
 **⚠️ Disclaimer**: This is experimental software. Use at your own risk and never commit more funds than you can afford to lose.
-=======
-Rescu3 = Rescue + Web3
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792

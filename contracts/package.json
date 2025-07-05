@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "rescu3-contracts",
   "version": "1.0.0",
   "description": "Smart contracts for Rescu3 wallet recovery protocol",
@@ -16,16 +15,3 @@
     "dotenv": "^16.3.1"
   }
 }
-=======
-  "name": "contracts",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
-}
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792

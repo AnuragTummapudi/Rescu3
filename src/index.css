@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 /* Rescu3 Premium Light Design System - Next Level UI */
 
 @layer base {
@@ -32,65 +31,16 @@
     /* Accent - Modern Teal */
     --accent: 142 86% 28%;
     --accent-foreground: 355 100% 97%;
-=======
-/* Next-Level Clean Light Design System with Futuristic Grid */
-
-@layer base {
-  :root {
-    /* Ultra Clean Light Palette */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
-
-    /* Primary - Modern Blue */
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 221 83% 95%;
-    --primary-glow: 221 83% 63%;
-
-    /* Secondary - Soft Gray */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 215 25% 27%;
-
-    --muted: 220 14% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    /* Accent - Vibrant Cyan */
-    --accent: 199 89% 48%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 199 89% 95%;
-
-    /* Success */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 100%;
-    --success-light: 142 76% 95%;
-
-    /* Warning */
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
-    --warning-light: 38 92% 95%;
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-<<<<<<< HEAD
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-=======
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
     --ring: 221 83% 53%;
 
     --radius: 0.75rem;
 
-<<<<<<< HEAD
     /* Premium Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(142 86% 28%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(221 100% 97%) 20%, hsl(142 100% 96%) 40%, hsl(221 100% 97%) 80%, hsl(0 0% 100%) 100%);
@@ -115,34 +65,6 @@
     --sidebar-accent: 210 40% 98%;
     --sidebar-accent-foreground: 222 84% 5%;
     --sidebar-border: 214 32% 91%;
-=======
-    /* Modern Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 50%, hsl(220 14% 96%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9) 0%, hsl(220 14% 98% / 0.7) 100%);
-    --gradient-mesh: radial-gradient(circle at 20% 80%, hsl(221 83% 95%) 0%, transparent 50%), 
-                     radial-gradient(circle at 80% 20%, hsl(199 89% 95%) 0%, transparent 50%),
-                     radial-gradient(circle at 40% 40%, hsl(142 76% 95%) 0%, transparent 50%);
-    
-    /* Glass Effects */
-    --glass-bg: hsl(0 0% 100% / 0.85);
-    --glass-border: hsl(221 83% 53% / 0.08);
-    --glass-shadow: 0 8px 32px hsl(221 83% 53% / 0.06);
-    
-    /* Smooth Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 215 25% 27%;
-    --sidebar-primary: 221 83% 53%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 215 25% 27%;
-    --sidebar-border: 220 13% 91%;
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
     --sidebar-ring: 221 83% 53%;
   }
 }
@@ -155,53 +77,13 @@
   body {
     @apply bg-background text-foreground;
     background: var(--gradient-hero);
-    background-attachment: fixed;
     min-height: 100vh;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-<<<<<<< HEAD
     overflow-x: hidden;
   }
 
   /* Premium Glass Components */
-=======
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    position: relative;
-  }
-
-  /* Futuristic Grid Background */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      linear-gradient(rgba(221, 83, 53, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(221, 83, 53, 0.03) 1px, transparent 1px),
-      linear-gradient(rgba(221, 83, 53, 0.01) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(221, 83, 53, 0.01) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-    pointer-events: none;
-    z-index: 0;
-    animation: grid-move 20s linear infinite;
-  }
-
-  @keyframes grid-move {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(100px, 100px); }
-  }
-
-  /* Ensure content is above grid */
-  .container, .relative {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Next-Level Glass Components */
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
   .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -209,7 +91,6 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     position: relative;
-<<<<<<< HEAD
   }
 
   .glass-card::before {
@@ -241,32 +122,6 @@
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: 0 20px 40px hsl(var(--primary) / 0.12);
-=======
-    z-index: 1;
-  }
-
-  .glass-nav {
-    background: hsl(0 0% 100% / 0.9);
-    border: 1px solid hsl(221 83% 53% / 0.06);
-    box-shadow: 0 4px 24px hsl(221 83% 53% / 0.04);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    position: relative;
-    z-index: 50;
-  }
-
-  /* Modern Glow Effects */
-  .glow-primary {
-    box-shadow: 0 8px 32px hsl(var(--primary) / 0.12);
-  }
-
-  .glow-accent {
-    box-shadow: 0 8px 32px hsl(var(--accent) / 0.12);
-  }
-
-  .glow-success {
-    box-shadow: 0 8px 32px hsl(var(--success) / 0.12);
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
   }
 
   /* Smooth Transitions */
@@ -278,20 +133,8 @@
     transition: var(--transition-bounce);
   }
 
-<<<<<<< HEAD
   .transition-elegant {
     transition: var(--transition-elegant);
-=======
-  .transition-spring {
-    transition: var(--transition-spring);
-  }
-
-  /* Modern Mesh Background */
-  .mesh-bg {
-    background: var(--gradient-mesh);
-    background-size: 100% 100%;
-    background-attachment: fixed;
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
   }
 
   /* Floating Animation */
@@ -299,20 +142,11 @@
     animation: float 6s ease-in-out infinite;
   }
 
-<<<<<<< HEAD
-=======
-  .float-delayed {
-    animation: float 6s ease-in-out infinite;
-    animation-delay: -2s;
-  }
-
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
   }
 
-<<<<<<< HEAD
   /* Elegant Pulse Animation */
   .pulse-elegant {
     animation: pulse-elegant 3s ease-in-out infinite;
@@ -353,48 +187,5 @@
     mask-composite: xor;
     -webkit-mask-composite: xor;
     opacity: 0.6;
-=======
-  /* Pulse Animation */
-  .pulse-glow {
-    animation: pulse-glow 4s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 8px 32px hsl(var(--primary) / 0.12); }
-    50% { box-shadow: 0 12px 48px hsl(var(--primary) / 0.18); }
-  }
-
-  /* Modern Scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary) / 0.3);
-    border-radius: 3px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.5);
-  }
-
-  /* Responsive Grid Adjustments */
-  @media (max-width: 768px) {
-    body::before {
-      background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
-      animation: grid-move 15s linear infinite;
-    }
-  }
-
-  @media (max-width: 480px) {
-    body::before {
-      background-size: 30px 30px, 30px 30px, 6px 6px, 6px 6px;
-      animation: grid-move 10s linear infinite;
-    }
->>>>>>> f1fc7729fd0fb51c08e86acaed7ca1aaf96bb792
   }
 }
