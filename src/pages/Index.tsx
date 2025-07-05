@@ -1,7 +1,7 @@
-import { Hero } from "@/components/Hero";
+import { HeroNew } from "@/components/HeroNew";
 
 const Index = () => {
-  return <Hero />;
+  return <HeroNew />;
 };
 
 export default Index;

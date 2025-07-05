@@ -8,25 +8,30 @@ import heroWallet from "@/assets/hero-wallet.jpg";
 export function Hero() {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Professional Animated Background */}
+      {/* Futuristic Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Subtle gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-primary-glow/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+        {/* Neon gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl pulse-glow" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/20 rounded-full blur-3xl pulse-glow" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-secondary/15 rounded-full blur-3xl pulse-glow" style={{ animationDelay: '2s' }} />
         
-        {/* Floating particles */}
-        <div className="absolute top-20 left-20 w-2 h-2 bg-primary/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-40 right-32 w-1 h-1 bg-accent/15 rounded-full animate-pulse" style={{ animationDelay: '3s' }} />
-        <div className="absolute bottom-32 left-1/3 w-1.5 h-1.5 bg-primary-glow/10 rounded-full animate-pulse" style={{ animationDelay: '5s' }} />
+        {/* Floating neon particles */}
+        <div className="absolute top-20 left-20 w-3 h-3 bg-primary rounded-full glow-primary float" style={{ animationDelay: '0s' }} />
+        <div className="absolute top-40 right-32 w-2 h-2 bg-accent rounded-full glow-accent float" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-32 left-1/3 w-4 h-4 bg-secondary rounded-full glow-primary float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-60 right-20 w-2 h-2 bg-primary rounded-full glow-primary float" style={{ animationDelay: '3s' }} />
         
-        {/* Subtle grid overlay */}
-        <div className="absolute inset-0 opacity-[0.01]" 
+        {/* Neon grid overlay */}
+        <div className="absolute inset-0 opacity-10" 
              style={{ 
                backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
-               backgroundSize: '60px 60px'
+               backgroundSize: '80px 80px'
              }} 
         />
+        
+        {/* Moving neon lines */}
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary to-transparent opacity-30 animate-pulse" />
+        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-accent to-transparent opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Main Content */}
@@ -64,13 +69,15 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-8"
           >
-            <h1 className="text-7xl md:text-8xl font-bold mb-4 leading-tight">
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Rescu3
+            <h1 className="text-8xl md:text-9xl font-display font-black mb-6 leading-tight">
+              <span className="bg-gradient-neon bg-clip-text text-transparent text-neon">
+                RESCU3
               </span>
             </h1>
-            <h2 className="text-4xl md:text-5xl font-semibold text-foreground/80 leading-tight">
-              Decentralized Wallet Recovery
+            <h2 className="text-5xl md:text-6xl font-display font-bold text-foreground leading-tight">
+              <span className="text-primary">Decentralized</span>{" "}
+              <span className="text-accent">Wallet</span>{" "}
+              <span className="text-secondary">Recovery</span>
             </h2>
           </motion.div>
 
@@ -79,10 +86,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl md:text-3xl text-muted-foreground mb-16 max-w-4xl mx-auto leading-relaxed font-light"
+            className="text-3xl md:text-4xl text-muted-foreground mb-16 max-w-5xl mx-auto leading-relaxed font-body"
           >
-            Recover your Ethereum wallet without seed phrases using our secure,{" "}
-            <span className="text-primary-glow font-medium">decentralized commit-reveal protocol</span>
+            Recover your Ethereum wallet without seed phrases using our{" "}
+            <span className="text-primary text-neon font-bold">secure decentralized</span>{" "}
+            <span className="text-accent text-neon font-bold">commit-reveal protocol</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -211,15 +219,15 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.2 + index * 0.2 }}
-                  className="glass-card p-8 rounded-2xl hover:bg-card/80 hover:shadow-lg transition-smooth group cursor-pointer border border-border"
+                  className="glass-card p-8 rounded-3xl hover:glow-intense hover:scale-105 transition-bounce group cursor-pointer border-neon"
                 >
-                  <div className="text-4xl mb-4 group-hover:scale-110 transition-smooth">
+                  <div className="text-5xl mb-6 group-hover:scale-125 transition-bounce float">
                     {feature.icon}
                   </div>
-                  <h3 className="font-bold text-xl mb-3 bg-gradient-primary bg-clip-text text-transparent">
+                  <h3 className="font-display font-black text-2xl mb-4 bg-gradient-neon bg-clip-text text-transparent text-neon">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
+                  <p className="text-muted-foreground leading-relaxed text-lg font-body">{feature.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -233,9 +241,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="max-w-6xl mx-auto mb-32"
         >
-          <div className="glass-card p-12 rounded-2xl text-center border border-border">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              <span className="text-destructive">$500M+</span> Lost Forever
+          <div className="glass-card p-16 rounded-3xl text-center border-neon glow-intense">
+            <h2 className="text-6xl md:text-7xl font-display font-black mb-12">
+              <span className="text-destructive text-neon">$500M+</span>{" "}
+              <span className="text-foreground">Lost Forever</span>
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-4xl mx-auto">
               Every year, millions of dollars in crypto assets are permanently lost due to forgotten private keys 

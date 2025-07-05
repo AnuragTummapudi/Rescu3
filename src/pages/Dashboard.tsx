@@ -11,14 +11,17 @@ export default function Dashboard() {
   const { isConnected } = useAccount();
 
   return (
-    <div className="min-h-screen p-6">
-      <div className="container mx-auto max-w-6xl">
+    <div className="min-h-screen relative overflow-hidden bg-background">
+      {/* Grid Background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+      
+      <div className="relative z-10 min-h-screen">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex items-center justify-between mb-8"
+          className="flex items-center justify-between p-6 border-b border-border/50"
         >
           <div className="flex items-center gap-4">
             <Link to="/">
@@ -28,72 +31,78 @@ export default function Dashboard() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-                Rescu3 Dashboard
+              <h1 className="text-3xl font-display font-black text-primary">
+                RESCU3 DASHBOARD
               </h1>
-              <p className="text-muted-foreground">
-                Manage your wallet recovery process
+              <p className="text-muted-foreground text-sm font-body">
+                Manage your wallet recovery process with <span className="text-primary font-semibold">next-gen technology</span>
               </p>
             </div>
           </div>
           
-          <div className="scale-110">
-            <ConnectButton />
-          </div>
+          <ConnectButton />
         </motion.div>
 
         {!isConnected ? (
           /* Not Connected State */
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center py-20"
-          >
-            <div className="glass-card max-w-md mx-auto p-8 rounded-xl border border-border">
-              <h2 className="text-2xl font-semibold mb-4">Connect Your Wallet</h2>
-              <p className="text-muted-foreground mb-6">
-                Please connect your wallet to access the recovery dashboard.
-              </p>
-              <ConnectButton />
-            </div>
-          </motion.div>
+          <div className="flex items-center justify-center min-h-[calc(100vh-100px)]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-center"
+            >
+              <div className="glass-card max-w-md mx-auto p-12 rounded-3xl border shadow-lg">
+                <div className="text-6xl mb-6 animate-bounce">🔗</div>
+                <h2 className="text-2xl font-display font-bold mb-6 text-foreground">Connect Your Wallet</h2>
+                <p className="text-muted-foreground mb-8 font-body">
+                  Please connect your wallet to access the recovery dashboard.
+                </p>
+                <ConnectButton />
+              </div>
+            </motion.div>
+          </div>
         ) : (
           /* Connected State */
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Left Column - Wallet Status */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="lg:col-span-1"
-            >
-              <WalletStatus />
-            </motion.div>
+          <div className="max-w-7xl mx-auto p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Left Column - Wallet Status */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="lg:col-span-1"
+              >
+                <WalletStatus />
+              </motion.div>
 
-            {/* Right Column - Recovery Phases */}
+              {/* Right Column - Recovery Phases */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="lg:col-span-2"
+              >
+                <RecoveryPhases />
+              </motion.div>
+            </div>
+
+            {/* Footer */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="lg:col-span-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-8 text-center text-sm text-muted-foreground"
             >
-              <RecoveryPhases />
+              <div className="glass-card p-4 rounded-xl border max-w-2xl mx-auto">
+                <p className="font-body">
+                  <span className="text-primary font-bold">Rescu3</span> is a decentralized wallet recovery protocol.{" "}
+                  <span className="text-primary">Always verify contract addresses on Etherscan.</span>
+                </p>
+              </div>
             </motion.div>
           </div>
         )}
-
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-16 text-center text-sm text-muted-foreground"
-        >
-          <p>
-            Rescu3 is a decentralized wallet recovery protocol. Always verify contract addresses on Etherscan.
-          </p>
-        </motion.div>
       </div>
     </div>
   );

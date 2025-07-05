@@ -5,19 +5,19 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-elegant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 hover:shadow-xl glow-primary",
-        destructive: "bg-destructive text-destructive-foreground shadow-lg hover:bg-destructive/90",
-        outline: "border border-border bg-card text-card-foreground shadow-sm hover:bg-muted hover:border-primary/30 transition-smooth",
-        secondary: "bg-secondary text-secondary-foreground shadow-lg hover:bg-secondary/80",
-        ghost: "hover:bg-accent/20 hover:text-accent-foreground",
+        default: "bg-primary text-primary-foreground shadow-soft hover:shadow-elegant hover:scale-105 transition-bounce",
+        destructive: "bg-destructive text-destructive-foreground shadow-soft hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-soft",
+        secondary: "bg-secondary text-secondary-foreground shadow-soft hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground transition-elegant",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-primary text-primary-foreground font-semibold shadow-2xl hover:shadow-primary/25 hover:scale-105 transition-bounce glow-primary",
-        glass: "glass-card text-foreground hover:bg-card/80 hover:border-primary/20 hover:shadow-md transition-smooth border border-border",
-        connect: "bg-accent text-accent-foreground font-semibold shadow-lg hover:bg-accent/90 hover:shadow-xl glow-accent",
+        hero: "bg-gradient-primary text-primary-foreground font-bold shadow-elegant hover:scale-105 transition-bounce relative",
+        glass: "glass-card text-foreground hover:shadow-elegant transition-elegant",
+        connect: "bg-accent text-accent-foreground font-semibold shadow-soft hover:shadow-elegant hover:scale-105 transition-bounce",
       },
       size: {
         default: "h-11 px-6 py-3",
