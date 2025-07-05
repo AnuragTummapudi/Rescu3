@@ -1,13 +1,10 @@
 import { MainNavbar } from "@/components/MainNavbar";
-import { HeroNew } from "@/components/HeroNew";
 
-const Index = () => {
+export default function FAQ() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-hero">
       <MainNavbar />
-      <HeroNew />
+      {/* ...rest of the code... */}
     </div>
   );
-};
-
-export default Index;
+} 

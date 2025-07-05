@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Trophy } from "lucide-react";
+import { MainNavbar } from "@/components/MainNavbar";
 
 export default function Dashboard() {
   const { isConnected, address } = useAccount();
@@ -32,6 +33,7 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-background">
+      <MainNavbar />
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
       

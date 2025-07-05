@@ -24,17 +24,12 @@ import {
 const mainItems = [
   { title: "Home", url: "/", icon: Home },
   { title: "Dashboard", url: "/dashboard", icon: Shield },
-  { title: "How it Works", url: "/how-it-works", icon: BookOpen },
-  { title: "About", url: "/about", icon: FileText },
 ];
 
-const supportItems = [
-  { title: "Help & FAQ", url: "/help", icon: HelpCircle },
-];
+const supportItems = [];
 
 const socialItems = [
-  { title: "GitHub", url: "https://github.com", icon: Github, external: true },
-  { title: "Twitter", url: "https://twitter.com", icon: Twitter, external: true },
+  { title: "GitHub", url: "https://github.com/AnuragTummapudi/Rescu3.git", icon: Github, external: true },
 ];
 
 export function AppSidebar() {

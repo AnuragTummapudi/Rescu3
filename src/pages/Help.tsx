@@ -15,6 +15,7 @@ import {
   Book
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { MainNavbar } from "@/components/MainNavbar";
 
 const faqs = [
   {
@@ -97,6 +98,7 @@ const helpCategories = [
 export default function Help() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-hero">
+      <MainNavbar />
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
       
@@ -106,7 +108,7 @@ export default function Help() {
         <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <Layout>
+      <Layout showSidebar={false}>
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <motion.div 

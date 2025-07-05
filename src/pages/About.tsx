@@ -13,38 +13,46 @@ import {
   Globe
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { MainNavbar } from "@/components/MainNavbar";
 
 const stats = [
-  { label: "Wallets Recovered", value: "5,000+", icon: Shield },
-  { label: "Success Rate", value: "99.8%", icon: Target },
-  { label: "Active Users", value: "15,000+", icon: Users },
-  { label: "Security Audits", value: "3", icon: Award }
+  { label: "Built at ETHIndia 2024", value: "Hackathon Project", icon: Shield },
+  { label: "Open Source", value: "MIT License", icon: Github },
+  { label: "100% Student Team", value: "4 Members", icon: Users },
+  { label: "Deployed on Sepolia", value: "Live Demo", icon: Globe }
 ];
 
 const team = [
   {
-    name: "Alex Chen",
-    role: "Founder & CEO",
-    bio: "Former Ethereum Foundation researcher with 8 years in blockchain security.",
-    avatar: "AC"
+    name: "Anurag Tummapudi",
+    role: "Full Stack & Smart Contracts",
+    bio: "Web3 developer, Solidity & React enthusiast. ETHIndia 2024 participant.",
+    avatar: "AT"
   },
   {
-    name: "Sarah Kim", 
-    role: "CTO",
-    bio: "Smart contract architect with expertise in cryptographic protocols.",
-    avatar: "SK"
+    name: "Shazia Mohommed",
+    role: "Frontend & UI/UX",
+    bio: "Passionate about user experience and clean design. ETHIndia 2024 participant.",
+    avatar: "SM"
   },
   {
-    name: "Marcus Brown",
-    role: "Lead Security",
-    bio: "Cybersecurity expert and blockchain auditor with 200+ audits.",
-    avatar: "MB"
+    name: "Saran Gaddanti",
+    role: "Backend & Integration",
+    bio: "Loves building scalable dApps and APIs. ETHIndia 2024 participant.",
+    avatar: "SG"
+  },
+  {
+    name: "Prem Jangam",
+    role: "Testing & Documentation",
+    bio: "Ensures quality and clarity in every release. ETHIndia 2024 participant.",
+    avatar: "PJ"
   }
 ];
 
 export default function About() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-hero">
+      <MainNavbar />
       {/* Grid Background */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
       
@@ -54,7 +62,7 @@ export default function About() {
         <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
-      <Layout>
+      <Layout showSidebar={false}>
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Hero Section */}
           <motion.div 
