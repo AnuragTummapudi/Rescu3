@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import { MainNavbar } from "@/components/MainNavbar";
 
 const stats = [
-  { label: "Built at ETHIndia 2024", value: "Hackathon Project", icon: Shield },
+  { label: "Built at Web3 SSH 2025", value: "Hackathon Project", icon: Shield },
   { label: "Open Source", value: "MIT License", icon: Github },
   { label: "100% Student Team", value: "4 Members", icon: Users },
   { label: "Deployed on Sepolia", value: "Live Demo", icon: Globe }
