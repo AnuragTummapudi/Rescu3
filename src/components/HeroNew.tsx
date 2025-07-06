@@ -59,9 +59,15 @@ export function HeroNew() {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button variant="outline" size="lg">
-              Watch Demo
-            </Button>
+             <a
+              href="https://youtu.be/dNdGSQ4Vr9w?si=l9n3vACkevCoD1-Q"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" size="lg">
+                Watch Demo
+              </Button>
+            </a>
           </div>
 
         </motion.div>
